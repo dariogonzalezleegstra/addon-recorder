@@ -7,12 +7,18 @@
     "matches": ["<all_urls>"],
     "js": [
       "node_modules/webextension-polyfill/dist/browser-polyfill.js",
-      "content_scripts/main.js"
+      "node_modules/rrweb/dist/rrweb.js",
+      "content_scripts/RecorderModal.js",
+      "content_scripts/recorder.js"
+    ],
+    "css": [
+      "content_scripts/css/style.css"
     ]
   }],
   "background":{
     "scripts": [
       "node_modules/webextension-polyfill/dist/browser-polyfill.js",
+      "node_modules/axios/dist/axios.js",
       "background/main.js"
     ]
   },

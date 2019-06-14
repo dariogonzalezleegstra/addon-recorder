@@ -1,0 +1,10 @@
+#recorder-container {
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 999;
+    height: 200px;
+    width: 200px;
+    background-color:lavenderblush;
+    margin: 100px;
+}

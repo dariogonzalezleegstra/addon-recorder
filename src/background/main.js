@@ -8,6 +8,21 @@ browser.browserAction.onClicked.addListener(function () {
     });
 });
 
+browser.runtime.onMessage.addListener(function (request) {
+    if (request.message == "save") {
+        console.log(request);
+        const data = JSON.stringify(request.events);
+        /**
+        console.log(data);
+        axios.post('http://localhost:5000/api/logger/rrweb', {
+            method: 'post',
+            data,
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });*/
+    }
+});
 
 
 function getCurrentTab (callback) {
