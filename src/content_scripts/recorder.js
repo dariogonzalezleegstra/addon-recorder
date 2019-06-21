@@ -4,7 +4,7 @@ function ScreenRecorder () {
 
 }
 
-ScreenRecorder.prototype.toogleRecording = function () {
+ScreenRecorder.prototype.toggleRecording = function () {
     if (!this.recording) {
         modal.show();
     }
@@ -16,6 +16,7 @@ ScreenRecorder.prototype.toogleRecording = function () {
 ScreenRecorder.prototype.startRecording = function () {
     this.events = [];
     this.recording = true;
+    this.screencastId = Math.random().toString(36).substring(2, 15) + "-" + Date.now();
 }
 
 ScreenRecorder.prototype.setUp = function () {
@@ -32,7 +33,7 @@ ScreenRecorder.prototype.setUp = function () {
     function save() {
         if (me.events.length > 0) {
             console.log('events pushed:', me.events);
-            browser.runtime.sendMessage({"message": "save", "events": me.events, "screencastName": me.screencastName});
+            browser.runtime.sendMessage({"message":"save", "data":{"events": me.events, "screencastName": me.screencastName, "id": me.screencastId}});
             me.events = [];
         }
     }
@@ -44,6 +45,6 @@ var modal = new RecorderModal(screenRecorder);
 screenRecorder.setUp();
 
 browser.runtime.onMessage.addListener((request, sender) => {
-    screenRecorder.toogleRecording();
+    screenRecorder.toggleRecording();
 });
 
