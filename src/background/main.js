@@ -5,7 +5,18 @@ browser.browserAction.onClicked.addListener(function () {
         browser.tabs.sendMessage(tab.id, {
             "call": "open"
         });
+
+
     });
+});
+
+browser.runtime.onMessage.addListener(function (request) {
+   if (request.message == "start") {
+       browser.browserAction.setIcon({path: {"64": "resources/stop_icon.jpg"}});
+   }
+   else if (request.message == "stop") {
+       browser.browserAction.setIcon({path: {"64": "resources/play_icon.png"}});
+   }
 });
 
 browser.runtime.onMessage.addListener(function (request) {

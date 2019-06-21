@@ -10,6 +10,8 @@ ScreenRecorder.prototype.toggleRecording = function () {
     }
     else {
         this.recording = false;
+        browser.runtime.sendMessage({"message": "stop"});
+
     }
 }
 
@@ -17,6 +19,7 @@ ScreenRecorder.prototype.startRecording = function () {
     this.events = [];
     this.recording = true;
     this.screencastId = Math.random().toString(36).substring(2, 15) + "-" + Date.now();
+    browser.runtime.sendMessage({"message": "start"});
 }
 
 ScreenRecorder.prototype.setUp = function () {
