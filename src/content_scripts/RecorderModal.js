@@ -7,7 +7,7 @@ function RecorderModal(aScreenRecorder) {
 RecorderModal.prototype.createModal = function () {
     const div = document.createElement("div");
     div.id = "recorder-container";
-    const title = document.createElement("h5");
+    const title = document.createElement("h3");
     title.innerHTML = "Screen Recorder";
     div.appendChild(title);
 

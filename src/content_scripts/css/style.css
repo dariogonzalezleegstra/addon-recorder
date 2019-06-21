@@ -1,10 +1,21 @@
 #recorder-container {
     top: 0;
-    left: 0;
+    right: 0;
     position: fixed;
     z-index: 999;
-    height: 200px;
+    height: 150px;
     width: 200px;
-    background-color:lavenderblush;
-    margin: 100px;
+    background-color:#d6d6d6;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#recorder-container h3 {
+    text-align: center;
+    font-size: 18px;
+}
+
+#recorder-container p {
+    font-size: 16px;
 }
